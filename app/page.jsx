@@ -4,7 +4,18 @@ import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
-export default function Home() {
+async function getData() {
+	try {
+		const res = await fetch(`https://api.wpplagiarism.one/v1/`);
+		return await res.json();
+	} catch (error) {
+		return error;
+	}
+}
+
+export default async function Home() {
+	const data = await getData();
+	console.log("data", data);
 	return (
 		<>
 			<main className="w-full  bg-white dark:bg-gray-900">

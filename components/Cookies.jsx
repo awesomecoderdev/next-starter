@@ -19,7 +19,7 @@ export default function Cookies() {
 
 					<p className="mt-4 text-sm text-gray-600 dark:text-gray-300">
 						We use cookies to ensure that we give you the best
-						experience on our website.{" "}
+						experience on our website.
 						<a href="#" className="text-blue-500 hover:underline">
 							Read cookies policies
 						</a>

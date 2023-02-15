@@ -15,8 +15,8 @@ export const metadata = {
 
 export default function RootLayout(props) {
 	const { children, params } = props;
+	// console.log("params", params);
 
-	console.log("params", params);
 	return (
 		<html lang="en">
 			<body className="antialiased text-slate-500 dark:text-slate-400  bg-white dark:bg-slate-900 h-full min-h-screen flex flex-col justify-between items-center ">
