@@ -1,3 +1,4 @@
+import Cookies from "@/components/Cookies";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Image from "next/image";
@@ -23,6 +24,7 @@ export default function RootLayout(props) {
 
 				{children}
 
+				<Cookies />
 				<Footer />
 			</body>
 		</html>

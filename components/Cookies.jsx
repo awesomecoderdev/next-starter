@@ -1,16 +1,18 @@
 "use client";
-import React, { useState } from "react";
+
+import { useEffect, useState } from "react";
 
 export default function Cookies() {
-	const [cookie, setCookie] = useState(false);
+	const [cookie, setCookie] = useState(true);
 	useEffect(() => {
-		setCookie(localStorage.getItem("cookie") ?? false);
+		const accepted = localStorage.getItem("cookie") ?? false;
+		setCookie(accepted.toString().toLowerCase() == "true");
 	}, []);
 
 	return (
 		<>
 			{!cookie ? (
-				<section className="fixed max-w-md p-4 mx-auto bg-white border border-gray-200 dark:bg-gray-800 left-12 bottom-16 dark:border-gray-700 rounded-2xl">
+				<section className="fixed max-w-md p-4 z-10 mx-auto bg-white border border-gray-200 dark:bg-gray-800 left-12 bottom-16 dark:border-gray-700 rounded-2xl">
 					<h2 className="font-semibold text-gray-800 dark:text-white">
 						🍪 Cookie Notice
 					</h2>

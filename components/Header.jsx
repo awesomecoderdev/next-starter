@@ -10,7 +10,7 @@ export default function Header(props) {
 
 	return (
 		<>
-			<header className="w-full bg-white dark:bg-gray-900 border-b border-zinc-100">
+			<header className="w-full bg-white dark:bg-gray-900 border-b border-zinc-100 dark:border-slate-800">
 				<div className="container relative flex flex-col px-6 py-4 mx-auto">
 					<nav className="md:flex md:items-center md:justify-between">
 						<div className="flex items-center justify-between">
@@ -59,17 +59,23 @@ export default function Header(props) {
 								</span>
 							</button>
 
-							<a href="#">
-								<img
+							<Link href="/" className="text-2xl font-semibold">
+								{/* <img
 									className="w-auto h-6 sm:h-7"
 									src="https://merakiui.com/images/full-logo.svg"
 									alt=""
-								/>
-							</a>
+								/> */}
+								<span className="text-transparent bg-gradient-to-br bg-clip-text from-teal-500 via-indigo-500 to-sky-500 dark:from-teal-200 dark:via-indigo-300 dark:to-sky-500">
+									Product
+								</span>
+
+								<span className="text-transparent bg-gradient-to-tr bg-clip-text from-primary-500 via-pink-500 to-red-500 dark:from-sky-300 dark:via-pink-300 dark:to-red-500">
+									Islands
+								</span>
+							</Link>
 						</div>
 
 						<div
-							// x-cloak:className="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
 							className={`${
 								toggle
 									? "translate-x-0 opacity-100 "
