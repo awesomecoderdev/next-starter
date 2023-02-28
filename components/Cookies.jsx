@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function Cookies() {
 	const [cookie, setCookie] = useState(true);
+
 	useEffect(() => {
 		const accepted = localStorage.getItem("cookie") ?? false;
 		setCookie(accepted.toString().toLowerCase() == "true");

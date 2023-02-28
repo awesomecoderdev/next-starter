@@ -19,7 +19,9 @@ export default function Header(props) {
 								className="text-gray-500 md:hidden dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none"
 							>
 								<span
-									className={`${toggle ? "hidden" : "block"}`}
+									className={`${
+										!toggle ? "hidden" : "block"
+									}`}
 								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
@@ -38,9 +40,7 @@ export default function Header(props) {
 								</span>
 
 								<span
-									className={`${
-										!toggle ? "hidden" : "block"
-									}`}
+									className={`${toggle ? "hidden" : "block"}`}
 								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
