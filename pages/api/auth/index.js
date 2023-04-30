@@ -5,7 +5,7 @@ export default function handler(req, res) {
 
 	if (method == "POST") {
 		// const { status, message } = Status.create(body);
-		res.status(Response.HTTP_OK).json({
+		res.status(Status.HTTP_OK).json({
 			method,
 			query,
 			url,
