@@ -15,7 +15,13 @@ export default function handler(req, res) {
 	}
 
 	if (method == "GET") {
-		res.status(Status.HTTP_OK).json({ method, query, url, cookies });
+		// res.status(Status.HTTP_OK).json({ method, query, url, cookies });
+		res.status(Status.HTTP_OK).json({
+			success: true,
+			status: 200,
+			message: "Successfully Authorized.",
+			data: null,
+		});
 	}
 
 	res.status(Status.HTTP_BAD_REQUEST).json({ method, query, url, cookies });
