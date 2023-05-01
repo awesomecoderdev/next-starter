@@ -1,30 +1,20 @@
 const WebSocket = require("ws");
+const Status = require("./lib/module/status");
 
 const server = new WebSocket.Server({ port: 8080 });
 
 server.on("connection", (socket, request) => {
-	const authorization = request.url.substring(1); // Get the dynamic slug from the URL
+	const authorization = String(request.url.substring(1)); // Get the dynamic slug from the URL
 	const { client, method, url, headers } = request;
 	const token = String(headers["sec-websocket-protocol"]);
-
-	if (token == authorization) {
-		console.log("Authorized");
-		// console.log({
-		// 	token,
-		// 	headers,
-		// });
-	} else {
-		console.log("Unauthorized");
-	}
+	const Authorized = token === authorization;
+	console.log("Authorized", Authorized);
 
 	socket.on("message", (message) => {
-		console.log(`Received message from : ${message}`);
-
-		// Handle the message based on the specified route
-		// ...
-
-		// Send a message back to the client
-		socket.send(`Received message: ${message}`);
+		if (method == "GET" && Authorized) {
+			socket.send(`Request ${Status.HTTP_ACCEPTED}`);
+		}
+		// console.log(`Received message from : ${message}`);
 	});
 
 	socket.on("close", () => {
