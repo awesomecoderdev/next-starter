@@ -11,10 +11,34 @@ server.on("connection", (socket, request) => {
 	console.log("Authorized", Authorized);
 
 	socket.on("message", (message) => {
+		if (!token || !authorization) {
+			socket.send(
+				JSON.stringify({
+					status: Status.HTTP_BAD_REQUEST,
+					message: Status[Status.HTTP_BAD_REQUEST],
+				})
+			);
+		}
+
+		if (!Authorized) {
+			socket.send(
+				JSON.stringify({
+					status: Status.HTTP_UNAUTHORIZED,
+					message: Status[Status.HTTP_UNAUTHORIZED],
+				})
+			);
+		}
+
 		if (method == "GET" && Authorized) {
 			socket.send(`Request ${Status.HTTP_ACCEPTED}`);
+		} else {
+			socket.send(
+				JSON.stringify({
+					status: Status.HTTP_BAD_REQUEST,
+					message: Status[Status.HTTP_BAD_REQUEST],
+				})
+			);
 		}
-		// console.log(`Received message from : ${message}`);
 	});
 
 	socket.on("close", () => {
